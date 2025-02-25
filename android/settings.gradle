@@ -1,4 +1,11 @@
-pluginManagement { includeBuild("../node_modules/@react-native/gradle-plugin") }
+pluginManagement { 
+     repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://android-sdk.teamcity.com/repository' } // Add this
+    }
+    includeBuild("../node_modules/@react-native/gradle-plugin") 
+    }
 plugins { id("com.facebook.react.settings") }
 extensions.configure(com.facebook.react.ReactSettingsExtension){ ex -> ex.autolinkLibrariesFromCommand() }
 rootProject.name = 'sampleProject'
