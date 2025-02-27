@@ -12,15 +12,16 @@ const HomeScreen = ({ navigation }) => {
     loadCharacters();
   }, []);
 
-  const loadCharacters = async () => {
-    if (loading) return;
-    setLoading(true);
-    const data = await fetchCharacters(page);
+ //http get request to fetch list of characters from the API
+  const loadCharacter = async () => {
+    if (loading) return; 
+    setLoading(true);  //data being fetched
+    const data = await fetchCharacters(page); //response from API is stored in variable data
     if (data) {
       setCharacters((prev) => [...prev, ...data.results]);
-      setPage(page + 1);
+      setPage(page + 1); //for next API call to get new data (this happens when we do infinite scrolling)
     }
-    setLoading(false);
+    setLoading(false); //to show that current API call is over and next one can be done
   };
 
   return (
@@ -28,8 +29,8 @@ const HomeScreen = ({ navigation }) => {
       data={characters}
       keyExtractor={(item) => item.id.toString()}
       renderItem={({ item }) => (
-        <CharacterCard character={item} onPress={() => navigation.navigate("Detail", { id: item.id })} />
-      )}
+        <CharacterCard character={item} onPress={() => navigation.navigate("Detail", { id: item.id })} />  // when character card is pressed this line is called
+      )}                                                                    
       onEndReached={loadCharacters}
       onEndReachedThreshold={0.5}
       ListFooterComponent={loading ? <ActivityIndicator size="large" /> : null}

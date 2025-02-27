@@ -5,11 +5,11 @@ import { enableScreens } from 'react-native-screens';
 import HomeScreen from "./srcmain/screens/HomeScreen";
 import CharacterDetail from "./srcmain/screens/DetailScreen";
 
-enableScreens();
+enableScreens();  // had to add this because project was crashing in ios simulator
 
 const Stack = createStackNavigator();
 
-const App = () => {
+const App = () => { 
   return (
     <NavigationContainer>
       <Stack.Navigator>

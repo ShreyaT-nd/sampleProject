@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";  //useEffect fetches data when the components loads
 import { View, Text, Image, ActivityIndicator, StyleSheet } from "react-native";
 import { fetchCharacterById } from "../services/api";
 
-const DetailScreen = ({ route }) => {
-  const { id } = route.params;
+const DetailScreen = ({ route }) => {   //detail screen receives id from route params
+  const { id } = route.params; //containes the id i passed from homescreen by clicking the particular card
   const [character, setCharacter] = useState(null);
 
-  useEffect(() => {
+  useEffect(() => {                                 // this snippet fetches the character details from the API
     const loadCharacter = async () => {
       const data = await fetchCharacterById(id);
       setCharacter(data);
@@ -18,7 +18,7 @@ const DetailScreen = ({ route }) => {
     return <ActivityIndicator size="large" style={{ marginTop: 50 }} />;
   }
 
-  return (
+  return (   //this displays the fecthed daya in the UI
     <View style={styles.container}>
       <Image source={{ uri: character.image }} style={styles.image} />
       <Text style={styles.name}>{character.name}</Text>

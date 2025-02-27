@@ -18,7 +18,7 @@ const CharacterCard = ({ character, onPress }) => {
 const styles = StyleSheet.create({
   card: {
     flexDirection: "row",
-    backgroundColor: "#fff",
+    backgroundColor: "#fff", 
     borderRadius: 10,
     marginBottom: 10,
     padding: 10,
