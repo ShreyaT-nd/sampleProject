@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 
-const CharacterCard = ({ character, onPress }) => {
-  return (
+const CharacterCard = ({ character, onPress }) => {         //character is a state variable that holds the array of characters fetched fromt the API
+  return (                                                  // and it is received from homescreen.js
     <TouchableOpacity style={styles.card} onPress={onPress}>
       <Image source={{ uri: character.image }} style={styles.image} />
       <View style={styles.info}>

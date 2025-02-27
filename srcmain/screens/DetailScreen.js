@@ -21,6 +21,7 @@ const DetailScreen = ({ route }) => {   //detail screen receives id from route p
   return (   //this displays the fecthed daya in the UI
     <View style={styles.container}>
       <Image source={{ uri: character.image }} style={styles.image} />
+      
       <Text style={styles.name}>{character.name}</Text>
       <Text>Status: {character.status}</Text>
       <Text>Species: {character.species}</Text>
